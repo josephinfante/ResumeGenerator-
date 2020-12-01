@@ -18,25 +18,16 @@
             <div class="info">
                 <h5 class="my-2">2.</h5>
                 <input v-model.lazy="info.tittle" type="text" class="form-control my-2" placeholder="Detalles Personales">
-                <div class="row mt-2">
+                <div class="row mt-2" v-for="(item, index) in info" :key="`field-${index}-$`">
                     <div class="col-4">
-                        <input v-model.lazy="info.tittleaddress" type="text" class="form-control mb-2" placeholder="Address Tittle">
+                        <input v-model.lazy="item.title" type="text" class="form-control mb-2" :placeholder="item.placeholderParent">
                     </div>
                     <div class="col-8">
-                        <input v-model.lazy="info.address" type="text" class="form-control mb-2" placeholder="Hollywood Boulevard, Vine St">
+                        <input v-model.lazy="item.value" type="text" class="form-control mb-2" :placeholder="item.placeholder">
                     </div>
-                    <div class="col-4">
-                        <input v-model.lazy="info.tittlephone" type="text" class="form-control mb-2" placeholder="Phone Tittle">
-                    </div>
-                    <div class="col-8">
-                        <input v-model.lazy="info.phone" type="number" class="form-control mb-2" placeholder="480 0987654">
-                    </div>
-                    <div class="col-4">
-                        <input v-model.lazy="info.tittleemail" type="email" class="form-control mb-2" placeholder="Email Tittle">
-                    </div>
-                    <div class="col-8">
-                        <input v-model.lazy="info.email" type="text" class="form-control" placeholder="createyourresume@resume.com">
-                    </div>
+                </div>
+                <div class="add-info">
+                    <div v-on:click="addInfo()" class="plus">+</div>
                 </div>
             </div>
             <div class="skills">
@@ -72,12 +63,10 @@
                 <h4 class="col-2">{{info.tittle}}</h4>
                 <div class="underline ml-3"> </div><br>
                 <div class="personal-details ml-3">
-                    <h5 class="uppercase info-tittle">{{info.tittleaddress}}</h5>
-                    <p>{{info.address}}</p>
-                    <h5 class="uppercase info-tittle">{{info.tittlephone}}</h5>
-                    <p>{{info.phone}}</p>
-                    <h5 class="uppercase info-tittle">{{info.tittleemail}}</h5>
-                    <p>{{info.email}}</p>
+                    <div v-for="(item, index) in info" :key="`item-${index}`">
+                        <h5 class="uppercase info-tittle">{{item.title}}</h5>
+                        <p>{{item.value}}</p>
+                    </div>
                 </div>
             </div>
             <div class="skills-preview my-3">
@@ -102,15 +91,26 @@ export default {
             lastname:'',
             career:''
         },
-        info : {
-            tittle:'Detalles Personales',
-            tittleaddress:'Direccion',
-            address:'',
-            tittlephone:'Telefono',
-            phone:'',
-            tittleemail:'Email',
-            email:''
-        },
+        info : [
+            {
+                title: 'Direccion',
+                value: '',
+                placeholderParent: 'Address Tittle',
+                placeholder: 'Hollywood Boulevard, Vine St'
+            },
+            {
+                title: 'Telefono',
+                value: '',
+                placeholderParent: 'Phone Tittle',
+                placeholder: '480 0987654'
+            },
+            {
+                title: 'Email',
+                value: '',
+                placeholderParent: 'Email Tittle',
+                placeholder: 'createyourresume@resume.com'
+            }
+        ],
         skills : {
             tittle:'Conocimientos',
             name:''
@@ -118,6 +118,15 @@ export default {
     }
   },
   methods: {
+    addInfo: function (){
+        var number = Number(this.info.length);
+        this.info.push({
+            title: 'Example ' + (number - 2),
+            value: '',
+            placeholderParent: 'Example Field',
+            placeholder: 'Example Field'
+        })
+    }
   },
 }
 </script>
@@ -125,6 +134,17 @@ export default {
 <style>
 #details {
     border-right: 1px solid black;
+}
+.plus {
+    background: #717171;
+    cursor: pointer;
+    width: 25px;
+    height: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    color: #FFFFFF;
 }
 .header-preview h2 {
     font-weight: 900;
