@@ -8,7 +8,7 @@
 import resume from './components/Resume.vue';
 export default {
   components: {
-    'resume':resume
+    resume
   },
   data() {
     return {
