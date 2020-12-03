@@ -26,29 +26,29 @@
                         <input v-model.lazy="item.value" type="text" class="form-control mb-2" :placeholder="item.placeholder">
                     </div>
                 </div>
-                <div class="add-info">
+                <div class="add my-2">
                     <div v-on:click="addInfo()" class="plus">+</div>
                 </div>
             </div>
             <div class="skills">
                 <h5 class="my-2">3.</h5>
-                <input v-model.lazy="skills.tittle" type="text" class="form-control my-2" placeholder="Conocimientos">
-                <div class="add row">
+                <input v-model.lazy="skills.title" type="text" class="form-control my-2" placeholder="Conocimientos">
+                <div class="row mt-2" v-for="(skill, index) in skills.mySkills" :key="`field-${index}-$`">
                     <div class="col-6">
-                        <input v-model.lazy="skills.name" type="text" class="form-control" placeholder="skill">
+                        <input v-model.lazy="skill.name" type="text" class="form-control" :placeholder="skill.placeholder">
                     </div>
-                    <div class="col-5">
-                        <select class="form-control" id="selectskills">
-                            <option></option>
-                            <option>+</option>
-                            <option>++</option>
-                            <option>+++</option>
-                            <option>++++</option>
+                    <div class="col-6">
+                        <select v-model.lazy="skill.value" class="form-control" id="selectskills">
+                            <option value="">Seleccione</option>
+                            <option value="25">+</option>
+                            <option value="50">++</option>
+                            <option value="75">+++</option>
+                            <option value="100">++++</option>
                         </select>
                     </div>
-                    <div class="col-1 my-2">
-                        <i class="fa fa-plus-circle"></i>
-                    </div>
+                </div>
+                <div class="add my-2">
+                    <div v-on:click="addSkill()" class="plus">+</div>
                 </div>
             </div>
         </div>
@@ -70,10 +70,13 @@
                 </div>
             </div>
             <div class="skills-preview my-3">
-                <h4 class="col-2">{{skills.tittle}}</h4>
+                <h4 class="col-2">{{skills.title}}</h4>
                 <div class="underline ml-3"> </div><br>
                 <div class="skills-details ml-3">
-                    <p class="uppercase">{{skills.name}}</p>
+                    <div v-for="(item, index) in skills.mySkills" :key="`item-${index}`">
+                        <p>{{item.name}}</p>
+                        <div class="bar" v-bind:style="{width: item.value + '%'}"></div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -112,8 +115,15 @@ export default {
             }
         ],
         skills : {
-            tittle:'Conocimientos',
-            name:''
+            title:'Conocimientos',
+            placeholder: 'Conocimientos',
+            mySkills : [
+                {
+                    name: '',
+                    placeholder: 'Habilidad',
+                    value: 0
+                }
+            ]
         }
     }
   },
@@ -126,6 +136,14 @@ export default {
             placeholderParent: 'Example Field',
             placeholder: 'Example Field'
         })
+    },
+    addSkill: function(){
+        var number = Number(this.skills.mySkills.length);
+        this.skills.mySkills.push({
+            name: 'Example Skill ' + (number),
+            value: 0,
+            placeholder: 'Example Skill'
+        })
     }
   },
 }
@@ -134,6 +152,10 @@ export default {
 <style>
 #details {
     border-right: 1px solid black;
+}
+.bar {
+    background: #717171;
+    height: 5px;
 }
 .plus {
     background: #717171;
