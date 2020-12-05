@@ -1,17 +1,14 @@
 <template>
-  <div>
+  <div id="app">
     <navigation></navigation>
-    <landing></landing>
+    <router-view/>
   </div>
 </template>
-
 <script>
-import navigation from './components/Navigation';
-import landing from './components/Landing';
+import navigation from './layouts/Navigation'
 export default {
   components: {
-    navigation,
-    landing,
+    navigation
   },
   data() {
     return {
@@ -23,7 +20,6 @@ export default {
   }
 }
 </script>
-
 <style>
 body {
   margin: 0;

@@ -6,7 +6,7 @@
             <h1 class="big">for free</h1>
         </div>
         <div class="landing-button">
-            <button class="btn btn1">click here</button>
+            <router-link to="/Resume" class="btn btn1">click here</router-link>
         </div>
     </div>
 </template>
