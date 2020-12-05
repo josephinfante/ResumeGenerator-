@@ -1,14 +1,14 @@
 <template>
-  <div>
-    <resume></resume>
+  <div id="app">
+    <navigation></navigation>
+    <router-view/>
   </div>
 </template>
-
 <script>
-import resume from './components/Resume.vue';
+import navigation from './layouts/Navigation'
 export default {
   components: {
-    resume
+    navigation
   },
   data() {
     return {
@@ -20,7 +20,6 @@ export default {
   }
 }
 </script>
-
 <style>
 body {
   margin: 0;
