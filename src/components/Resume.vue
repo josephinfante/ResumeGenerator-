@@ -68,10 +68,10 @@
                 <div class="mt-2" v-for="(jobs, index) in jobs.myJobs" :key="`field-${index}-$`">
                     <div class="row">
                         <div class="col-6 mb-2">
-                            <input v-model.lazy="jobs.name" type="text" class="form-control" :placeholder="jobs.placeholder">
+                            <input v-model.lazy="jobs.name" type="text" class="form-control" placeholder="Jobs Name">
                         </div>
                         <div class="col-6 mb-2">
-                            <input v-model.lazy="jobs.position" type="text" class="form-control" :placeholder="jobs.placeholder">
+                            <input v-model.lazy="jobs.position" type="text" class="form-control" placeholder="Jobs Position">
                         </div>
                         <datepicker v-model.lazy="jobs.startDate" placeholder="Select start date" input-class="form-control" class="col-6 mb-2"></datepicker>
                         <datepicker v-model.lazy="jobs.endDate" placeholder="Select end date" input-class="form-control" class="col-6 mb-2"></datepicker>
@@ -89,7 +89,7 @@
 
         <div class="col-sm-6" id="preview">
             <h1 class="text-center my-3">preview your resume</h1>
-            <div  v-bind:class="{ 'header-preview': header.fistname}" class="ml-3">
+            <div  v-bind:class="{ 'header-preview': header.firstname}" class="ml-3">
                 <h2>{{header.firstname}}</h2>
                 <h2>{{header.lastname}}</h2>
                 <p class="uppercase">{{header.career}}</p>
@@ -123,6 +123,17 @@
                         <div v-bind:class="{ 'underline': resumen.tittle}" class="ml-3"></div>
                         <div class="resume-about ml-3 my-2 text-justify">{{resumen.about}}</div>
                     </div>
+                    <div v-bind:class="{ 'jobs-preview': jobs.tittle}">
+                        <h4 class="col-2">{{jobs.tittle}}</h4>
+                        <div v-bind:class="{ 'underline': jobs.tittle}" class="ml-3"></div>
+                        <div class="jobs-details ml-3 my-2">
+                            <div v-for="(item, index) in jobs.myJobs" :key="`item-${index}`">
+                                <h5>{{item.position+', '+item.name}}</h5>
+                                <p class="my-1">{{dateFormat(item.startDate)+' - '+dateFormat(item.endDate)}}</p>
+                                <p class="my-1 text-justify">{{item.description}}</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -132,6 +143,7 @@
 
 <script>
 import Datepicker from 'vuejs-datepicker';
+import moment from 'moment';
 export default {
 components : {
     Datepicker
@@ -187,8 +199,7 @@ data() {
                     position: '',
                     startDate: '',
                     endDate: '',
-                    description: '',
-                    placeholder: 'Jobs Name'
+                    description: ''
                 }
             ]
         }
@@ -231,6 +242,9 @@ data() {
     },
     deleteJob: function(index) {
         this.jobs.myJobs.splice(index, 1);
+    },
+    dateFormat: function(date){
+        return moment(date).format('d MMM yyyy')
     },
   },
 }
@@ -278,6 +292,10 @@ data() {
     border-right: 1px solid #ced4da;
 }
 .resume-preview {
+    margin-top: 10px;
+    border-bottom: 1px solid #ced4da;
+}
+.jobs-preview {
     margin-top: 10px;
     border-bottom: 1px solid #ced4da;
 }

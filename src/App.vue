@@ -1,14 +1,17 @@
 <template>
   <div>
-    <resume></resume>
+    <navigation></navigation>
+    <landing></landing>
   </div>
 </template>
 
 <script>
-import resume from './components/Resume.vue';
+import navigation from './components/Navigation';
+import landing from './components/Landing';
 export default {
   components: {
-    resume
+    navigation,
+    landing,
   },
   data() {
     return {
