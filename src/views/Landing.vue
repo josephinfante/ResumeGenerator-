@@ -1,12 +1,47 @@
 <template>
-    <div class="container page1">
-        <div class="landing-tittle">
-            <h1 class="small">Make your own</h1>
-            <h1 class="medium">resume</h1>
-            <h1 class="big">for free</h1>
+    <div class="container ">
+        <div class="controllers">
+            <ul>
+                <li class="my-3">
+                    <i class="fa fa-circle"></i>
+                </li>
+                <li class="my-3">
+                    <i class="fa fa-circle"></i>
+                </li>
+                <li class="my-3">
+                    <i class="fa fa-circle"></i>
+                </li>
+            </ul>
         </div>
-        <div class="landing-button">
-            <router-link to="/Resume" class="btn btn1">click here</router-link>
+        <div class="page1">
+            <div class="landing-tittle">
+                <h1 class="small">Make your own</h1>
+                <h1 class="medium">resume</h1>
+                <h1 class="big">for free</h1>
+            </div>
+            <div class="landing-button">
+                <router-link to="/Resume" class="btn btn1">create my resume</router-link>
+            </div>
+        </div>
+        <div class="page1">
+            <div class="landing-tittle">
+                <h1 class="small">Make your own</h1>
+                <h1 class="medium">resume</h1>
+                <h1 class="big">for free</h1>
+            </div>
+            <div class="landing-button">
+                <router-link to="/Resume" class="btn btn1">create my resume</router-link>
+            </div>
+        </div>
+        <div class="page1">
+            <div class="landing-tittle">
+                <h1 class="small">Make your own</h1>
+                <h1 class="medium">resume</h1>
+                <h1 class="big">for free</h1>
+            </div>
+            <div class="landing-button">
+                <router-link to="/Resume" class="btn btn1">create my resume</router-link>
+            </div>
         </div>
     </div>
 </template>
@@ -60,5 +95,13 @@ export default {
 }
 .big {
     font-size: 80px;
+}
+ul {
+    list-style-type: none;
+}
+.controllers {
+    position: absolute;
+    top: 50%;
+    right: 10%;
 }
 </style>
