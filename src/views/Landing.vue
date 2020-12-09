@@ -1,18 +1,5 @@
 <template>
     <div class="container ">
-        <div class="controllers">
-            <ul>
-                <li class="my-3">
-                    <i class="fa fa-circle"></i>
-                </li>
-                <li class="my-3">
-                    <i class="fa fa-circle"></i>
-                </li>
-                <li class="my-3">
-                    <i class="fa fa-circle"></i>
-                </li>
-            </ul>
-        </div>
         <div class="page1">
             <div class="landing-tittle">
                 <h1 class="small">Make your own</h1>
@@ -23,24 +10,24 @@
                 <router-link to="/Resume" class="btn btn1">create my resume</router-link>
             </div>
         </div>
-        <div class="page1">
-            <div class="landing-tittle">
-                <h1 class="small">Make your own</h1>
-                <h1 class="medium">resume</h1>
-                <h1 class="big">for free</h1>
-            </div>
-            <div class="landing-button">
-                <router-link to="/Resume" class="btn btn1">create my resume</router-link>
+        <div class="page2">
+            <h3 class="text-center my-5 medium">choose your template</h3>
+            <div class="cardContainer">
+                <div class="card1">
+
+                </div>
+                <div class="card1">
+                    
+                </div>
+                <div class="card1">
+                    
+                </div>
             </div>
         </div>
-        <div class="page1">
-            <div class="landing-tittle">
-                <h1 class="small">Make your own</h1>
-                <h1 class="medium">resume</h1>
-                <h1 class="big">for free</h1>
-            </div>
-            <div class="landing-button">
-                <router-link to="/Resume" class="btn btn1">create my resume</router-link>
+        <div class="page3">
+            <h3 class="text-center my-5 medium">fill it with your information</h3>
+            <div class="videContainer">
+
             </div>
         </div>
     </div>
@@ -99,9 +86,27 @@ export default {
 ul {
     list-style-type: none;
 }
-.controllers {
-    position: absolute;
-    top: 50%;
-    right: 10%;
+.page2 {
+    height: 100vh;
+}
+.cardContainer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+.cardContainer .card1 {
+    width: 210px;
+    height: 297px;
+    background: gray;
+    border-radius: 20px;
+}
+.page3 {
+    height: 100vh;
+}
+.videContainer {
+    width: 100%;
+    height: 50%;
+    background: gray;
+    border-radius: 20px;
 }
 </style>
