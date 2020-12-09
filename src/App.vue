@@ -2,13 +2,16 @@
   <div id="app">
     <navigation></navigation>
     <router-view/>
+    <footerc></footerc>
   </div>
 </template>
 <script>
 import navigation from './layouts/Navigation'
+import footerc from './layouts/Footer'
 export default {
   components: {
-    navigation
+    navigation,
+    footerc
   },
   data() {
     return {
