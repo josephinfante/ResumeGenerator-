@@ -1,4 +1,5 @@
 <template>
+  <div class="LoginRegisterView">
     <div class="container containerLoginRegister">
       <div class="backbox">
         <div  :class="{visibility:clicked == 1}" class="loginMessage">
@@ -55,6 +56,7 @@
         </div>
       </div>
     </div>
+  </div>
 </template>
 <script>
 export default {
@@ -72,6 +74,9 @@ export default {
 </script>
 <style>
 /*003b46, 07575b, 66a5ad, c4dfe6*/
+.LoginRegisterView {
+  height: 100vh;
+}
 .containerLoginRegister {
   max-width: 750px;
   height: 300px;
@@ -128,10 +133,6 @@ export default {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-}
-.btn:focus, .btn.focus {
-  outline: 0;
-  -webkit-box-shadow: none;
 }
 .content2 {
   display: flex;
@@ -193,10 +194,6 @@ export default {
 }
 .inputbox {
   margin-top: 30px;
-}
-input {
-  border-radius: 20px!important;
-  background-color: #DAE1E7!important;
 }
 .loginMessage, .registerMessage {
   transition: opacity .8s ease-in-out;
