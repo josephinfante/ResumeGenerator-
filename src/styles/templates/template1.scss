@@ -1,0 +1,49 @@
+.template1 {
+    background: #e7e7de;
+    border-radius: 30px;
+    margin: 0px 15px;
+    width: 100%;
+    padding: 0px 15px;
+    h1,h2,h3,h4,h5 {
+        text-transform: uppercase;
+    }
+    .header-preview {
+        margin: 10px 15px 0px 15px;
+        border-bottom: 1px solid #ced4da;
+        h2 {
+            font-weight: 600;
+        }
+    }
+    .bodycontainer {
+        margin-top: 20px;
+        display: flex;
+        justify-content: space-between;
+        .leftcontainer {
+            width: 40%;
+            margin: 0px 10px;
+            .info-preview {
+
+            }
+            .skills-preview{
+                .skills-details {
+                    margin: 20px 0px;
+                    .bar {
+                        background: #008891;
+                        height: 5px;
+                        border-radius: 30px;
+                    }
+                }
+            }
+        }
+        .rightcontainer {
+            width: 60%;
+            margin: 0px 10px;
+        }
+    }
+    .underline {
+        width: 65px;
+        height: 4px;
+        border-radius: 20px;
+        background: black;
+    }
+}

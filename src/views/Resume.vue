@@ -1,8 +1,7 @@
 <template>
-  <div id="resume">
+  <div id="resume" class="my-3">
       <div class="d-flex">
-        <div class="col-sm-6" id="details">
-            <h1 class="text-center my-3">create your resume</h1>
+        <div class="col-sm-6 left">
             <div class="header">
                 <h5>1.</h5>
                 <div class="row mb-2">
@@ -87,29 +86,28 @@
             </div>
         </div>
 
-        <div class="col-sm-6" id="preview">
-            <h1 class="text-center my-3">preview your resume</h1>
-            <div  v-bind:class="{ 'header-preview': header.firstname}" class="ml-3">
+        <div class="template1">
+            <div  v-bind:class="{ 'header-preview': header.firstname}">
                 <h2>{{header.firstname}}</h2>
                 <h2>{{header.lastname}}</h2>
                 <p class="uppercase">{{header.career}}</p>
             </div>
-            <div class="bobycontainer row">
-                <div v-bind:class="{ 'leftcontainer': info.tittle}" class="col-4">
-                    <div class="info-preview mb-3">
-                        <h4 class="col-2">{{info.tittle}}</h4>
-                        <div v-bind:class="{ 'underline': info.tittle}" class="ml-3"> </div><br>
-                        <div class="personal-details ml-3">
+            <div class="bodycontainer">
+                <div v-bind:class="{ 'leftcontainer': info.tittle}">
+                    <div class="info-preview">
+                        <h5>{{info.tittle}}</h5>
+                        <div v-bind:class="{ 'underline': info.tittle}"> </div><br>
+                        <div class="personal-details">
                             <div v-for="(item, index) in info" :key="`item-${index}`">
-                                <h5 class="uppercase info-tittle">{{item.title}}</h5>
+                                <p class="uppercase info-tittle"><strong>{{item.title}}</strong></p>
                                 <p>{{item.value}}</p>
                             </div>
                         </div>
                     </div>
-                    <div class="skills-preview my-3">
-                        <h4 class="col-2">{{skills.title}}</h4>
-                        <div v-bind:class="{ 'underline': skills.title}" class="ml-3"> </div><br>
-                        <div class="skills-details ml-3">
+                    <div class="skills-preview">
+                        <h5>{{skills.title}}</h5>
+                        <div v-bind:class="{ 'underline': skills.title}"> </div><br>
+                        <div class="skills-details">
                             <div v-for="(item, index) in skills.mySkills" :key="`item-${index}`">
                                 <p>{{item.name}}</p>
                                 <div class="bar" v-bind:style="{width: item.value + '%'}"></div>
@@ -117,20 +115,20 @@
                         </div>
                     </div>
                 </div>
-                <div class="rightcontainer col-8">
-                    <div v-bind:class="{ 'resume-preview': resumen.tittle}" class="mb-3">
-                        <h4 class="col-2">{{resumen.tittle}}</h4>
-                        <div v-bind:class="{ 'underline': resumen.tittle}" class="ml-3"></div>
-                        <div class="resume-about ml-3 my-2 text-justify">{{resumen.about}}</div>
+                <div class="rightcontainer">
+                    <div v-bind:class="{ 'resume-preview': resumen.tittle}">
+                        <h5>{{resumen.tittle}}</h5>
+                        <div v-bind:class="{ 'underline': resumen.tittle}"></div>
+                        <div class="resume-about text-justify">{{resumen.about}}</div>
                     </div>
                     <div v-bind:class="{ 'jobs-preview': jobs.tittle}">
-                        <h4 class="col-2">{{jobs.tittle}}</h4>
-                        <div v-bind:class="{ 'underline': jobs.tittle}" class="ml-3"></div>
-                        <div class="jobs-details ml-3 my-2">
+                        <h5>{{jobs.tittle}}</h5>
+                        <div v-bind:class="{ 'underline': jobs.tittle}"></div>
+                        <div class="jobs-details">
                             <div v-for="(item, index) in jobs.myJobs" :key="`item-${index}`">
                                 <h5>{{item.position+', '+item.name}}</h5>
-                                <p class="my-1">{{dateFormat(item.startDate)+' - '+dateFormat(item.endDate)}}</p>
-                                <p class="my-1 text-justify">{{item.description}}</p>
+                                <p>{{dateFormat(item.startDate)+' - '+dateFormat(item.endDate)}}</p>
+                                <p class="text-justify">{{item.description}}</p>
                             </div>
                         </div>
                     </div>
@@ -250,13 +248,10 @@ data() {
 }
 </script>
 
-<style>
-#details {
-    border-right: 1px solid black;
-}
-.bar {
-    background: #717171;
-    height: 5px;
+<style lang="scss">
+@import '../styles/templates/template1.scss';
+#resume {
+    margin: 0px 25px;
 }
 .iconBox {
     background: #717171;
@@ -268,35 +263,5 @@ data() {
     justify-content: center;
     font-size: 20px;
     color: #FFFFFF;
-}
-.header-preview h2 {
-    font-weight: 900;
-}
-.header-preview {
-    border-bottom: 1px solid #ced4da;
-}
-.uppercase {
-    text-transform: uppercase;
-}
-.underline {
-    width: 65px;
-    height: 4px;
-    border-radius: 20px;
-    background: black;
-}
-.info-tittle {
-    font-weight: 900;
-}
-.leftcontainer {
-    margin-top: 10px;
-    border-right: 1px solid #ced4da;
-}
-.resume-preview {
-    margin-top: 10px;
-    border-bottom: 1px solid #ced4da;
-}
-.jobs-preview {
-    margin-top: 10px;
-    border-bottom: 1px solid #ced4da;
 }
 </style>
