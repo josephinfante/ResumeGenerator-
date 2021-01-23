@@ -72,8 +72,8 @@ export default {
   }
 }
 </script>
-<style>
-/*003b46, 07575b, 66a5ad, c4dfe6*/
+<style lang="scss">
+@import '../styles/_variables.scss';
 .LoginRegisterView {
   height: 100vh;
 }
@@ -87,7 +87,8 @@ export default {
   display: inline-flex;
 }
 .backbox {
-  background: #DAE1E7;
+  background: $darkblue;
+  color: white;
   width: 100%;
   height: 80%;
   position: absolute;
@@ -97,7 +98,7 @@ export default {
   border-radius: 20px;
 }
 .frontbox {
-  background: white;
+  background: $gray;
   border-radius: 20px;
   height: 100%;
   width: 45%;
@@ -120,7 +121,7 @@ export default {
   border-radius: 50%;
   height: 50px;
   width: 50px;
-  background: #00909E;
+  background: $second;
   font-size: 25px;
   position: absolute;
   top: 50%;
@@ -128,7 +129,7 @@ export default {
   transform: translate(-50%, -50%);
 }
 .content1 button .fa {
-  color: #DAE1E7;
+  color: white;
   position: absolute;
   top: 50%;
   left: 50%;
@@ -148,7 +149,7 @@ export default {
   border-radius: 50%;
   height: 50px;
   width: 50px;
-  background: #00909E;
+  background: $second;
   font-size: 25px;
   position: absolute;
   top: 50%;
@@ -156,7 +157,7 @@ export default {
   transform: translate(-50%, -50%);
 }
 .content2 button .fa {
-  color: #DAE1E7;
+  color: white;
   position: absolute;
   top: 50%;
   left: 50%;
@@ -164,6 +165,8 @@ export default {
 }
 .card {
   border-radius: 20px;
+  border: none;
+  background: $gray;
 }
 .moving {
   right: 45%;
@@ -183,11 +186,14 @@ export default {
   text-align: center;
 }
 .login button, .register button {
-  background: #00909E;
+  background: $darkblue;
   color: #DAE1E7;
   border-radius: 20px;
-  width: 50%;
+  width: 100%;
   margin: 0px auto;
+  &:hover {
+    color: $second;
+  }
 }
 .register {
   margin: -35px 0px;
@@ -203,5 +209,9 @@ export default {
 }
 .hide {
   display: none;
+}
+.form-control {
+  border-radius: 30px;
+  text-align: center;
 }
 </style>

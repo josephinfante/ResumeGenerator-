@@ -1,5 +1,5 @@
 <template>
-    <div class="navbar navbar-expand-lg navbar-dark bg-primary sticky-top">
+    <div class="navbar navbar-expand-lg sticky-top">
         <router-link to="/" class="navbar-brand  mr-auto" >LOGONAME</router-link>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
@@ -28,11 +28,16 @@ export default {
   }
 }
 </script>
-<style>
-.fa {
-  color: #8d8b7a;
-}
-.fa:hover {
-  color: white;
+<style lang="scss">
+@import '../styles/_variables.scss';
+.navbar {
+  background-color: $darkblue;
+  height: 80px;
+  .nav-link, .navbar-brand, .fa {
+    color: $second;
+    &:hover {
+      color: white;
+    }
+  }
 }
 </style>

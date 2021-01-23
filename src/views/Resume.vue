@@ -86,7 +86,7 @@
             </div>
         </div>
 
-        <div class="template1">
+        <div class="template2">
             <div  v-bind:class="{ 'header-preview': header.firstname}">
                 <h2>{{header.firstname}}</h2>
                 <h2>{{header.lastname}}</h2>
@@ -249,7 +249,7 @@ data() {
 </script>
 
 <style lang="scss">
-@import '../styles/templates/template1.scss';
+@import '../styles/templates/template2.scss';
 #resume {
     margin: 0px 25px;
 }
