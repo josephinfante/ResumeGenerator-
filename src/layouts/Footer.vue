@@ -37,11 +37,11 @@ export default {
   }
 }
 </script>
-<style>
+<style lang="scss">
+@import '../styles/_variables.scss';
 .footer {
     width: 100%;
-    height: 130px;
-    background: black;
+    background: $third;
 }
 .footer .container {
     height: 100%;

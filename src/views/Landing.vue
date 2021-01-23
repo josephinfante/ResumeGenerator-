@@ -2,11 +2,11 @@
     <div class="container ">
         <div class="page1">
             <div class="landing-tittle">
-                <h1 data-aos-duration="1000" data-aos="zoom-in-up" class="small">Make your own</h1>
-                <h1 data-aos-delay="500" data-aos-duration="2000" data-aos="zoom-in-up" class="medium">resume</h1>
-                <h1 data-aos-delay="1000" data-aos-duration="3000" data-aos="zoom-in-up" class="big">for free</h1>
+                <h1 data-aos-delay="500" data-aos-duration="500"  data-aos="zoom-in-up" class="small">MAKE YOUR OWN</h1>
+                <h1 data-aos-delay="750" data-aos-duration="750" data-aos="zoom-in-up" class="medium">RESUME</h1>
+                <h1 data-aos-delay="1000" data-aos-duration="1000" data-aos="zoom-in-up" class="big">FOR FREE</h1>
             </div>
-            <div data-aos-delay="1000" data-aos-duration="3000" data-aos="fade-left" class="landing-button">
+            <div data-aos-delay="1000" data-aos-duration="1000" data-aos="fade-left" class="landing-button">
                 <router-link to="/Resume" class="btn btn1">create my resume</router-link>
             </div>
         </div>
@@ -46,8 +46,8 @@ export default {
   }
 }
 </script>
-<style>
-/*003b46, 07575b, 66a5ad, c4dfe6*/
+<style lang="scss">
+@import '../styles/_variables.scss';
 .page1 {
     height: 100vh;
     display: grid;
@@ -62,12 +62,11 @@ export default {
     align-self: center;
 }
 .btn1 {
-    background: #07575B;
-    color: #c4dfe6;
-}
-.btn1:hover {
-    background: #66a5ad;
-    color: #003b46;
+    background-color: $darkblue;
+    color: white;
+    &:hover {
+    color: $second;
+    }
 }
 .landing-tittle {
     justify-self: center;
